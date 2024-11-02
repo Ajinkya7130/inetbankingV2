@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- Banking Application Test Suite -->
+<suite name="BankingApp Test Suite" parallel="false">
+
+    <!-- Define the parameters for browser, URL, and credentials -->
+    <parameter name="browser" value="chrome"/>
+    <parameter name="baseURL" value="https://demo.guru99.com/v4/"/>
+    <parameter name="username" value="mngr596113"/>
+    <parameter name="password" value="gybAzaz"/>
+
+    <!-- Test group for login functionality -->
+    <test name="Login Test">
+        <!-- Pass browser parameter from the suite level to the test class -->
+        <parameter name="browser" value="chrome"/>
+
+        <!-- Define classes to be tested -->
+        <classes>
+            <!-- Class that contains the test methods -->
+            <class name="com.inetbanking.testCases.TC_LoginTest_001"/>
+        </classes>
+    </test>
+
+    <!-- Test group for regression testing, add more tests here if needed -->
+    <!--
+    <test name="Regression Tests">
+        <parameter name="browser" value="firefox"/>
+
+        <classes>
+            <class name="com.inetbanking.testCases.TC_FundTransferTest"/>
+            <class name="com.inetbanking.testCases.TC_AccountOverviewTest"/>
+        </classes>
+    </test>
+    -->
+
+    <!-- Listeners for reporting (Optional) -->
+    <listeners>
+        <!-- Emailable Report: Generates email-friendly HTML report -->
+        <listener class-name="org.testng.reporters.EmailableReporter"/>
+        
+        <!-- HTML and XML reports for better logging -->
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+
+</suite>
